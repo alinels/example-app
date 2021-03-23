@@ -55,7 +55,7 @@ class ProductsController extends Controller
 
       }
 
-      $product ->update( $request->all() );
+      $product ->update( $request->all() );    
       return Redirect::to('/products');
 
     }
