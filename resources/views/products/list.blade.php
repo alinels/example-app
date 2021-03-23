@@ -19,10 +19,12 @@
                     <thead>
                         <tr>
                         
-                        <th scope="col">Check</th>
+
+                      
                         <th scope="col">Name</th>
                         <th scope="col">Edit</th>
-                        <th scope="col">Delete</th>
+                        <th scope="col">Delete</th> 
+                        <th scope="col">Image</th> 
                         
                         </tr>
                     </thead>
@@ -32,8 +34,8 @@
             
                     
                     <tr>
-                        
-                        </td>
+                    
+                    </td>
                         
                         
                         <td>{{$u->name}}</td>
@@ -46,8 +48,12 @@
                             <form action="products/delete/{{ $u->id }}" method="post">
                             @csrf
                             @method('delete')
-                            <button class="btn btn-danger">Delete </button>
+                            <button class="btn btn-danger">Delete </button> 
+
+                        
                             </form>
+                        </td>
+                        <td><img src="storage/app/{{ $u->image }}" width="70px;" heidth="70px"  class="img-rounded" />
                         </td>
 
                     </tr>

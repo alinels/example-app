@@ -19,36 +19,57 @@
 
 
                     @if( Request::is('*/edit'))
-                    <form action="{{ url('products/update')}}/{{$product->id}}" method="post">                    
+                    <form action="{{ url('products/update')}}/{{$product->id}}" method="post" enctype="multipart/form-data">                    
                     @csrf
+                    @if($errors ->  any())
+                        <div class="alert alert-danger">
+                            <ul> @foreach($errors->all() as $error)
+                                <li>{{ $error}}</li>
+                            @endforeach
+                            </ul>
+                        </div>
+                        @endif  
                     <div class="form-group">
-                        <label for="exampleInputProduct">Product Naam  </label>
+                        <label for="exampleInputProduct">Edit Product Naam  </label>
                         <input type="text" name ='name' class="form-control" value="{{$product->name}}" >
                     </div>
                     
-                    
-                    <div class="form-check">
-                    <input name="check" type="checkbox" class="form-check-input" value="1" >
-                      <label class="form-check-label" >Check</label>
+
+
+                    <div class="form-group">
+                        <label for="image">Image</label>
+                        <input type="file" name="image" class="form-control">
                     </div>
 
+                    
                     <button type="submit" class="btn btn-primary">Bekijk</button>
                     </form>
 
                     @else
 
-                    <form action="{{ url('products/add')}}" method="post">
+                    <form action="{{ url('products/add')}}" method="post" enctype="multipart/form-data">
                     @csrf
+                    @if($errors ->  any())
+                        <div class="alert alert-danger">
+                            <ul> @foreach($errors->all() as $error)
+                                <li>{{ $error}}</li>
+                            @endforeach
+                            </ul>
+                        </div>
+                        @endif
+
                     <div class="form-group">
                         <label for="exampleInputProduct">Product Naam  </label>
                         <input type="text" name ='name' class="form-control" >
                         
                     </div>
 
-                    <div class="form-check">
-                      <input type="checkbox" class="form-check-input" id="check">
-                      <label class="form-check-label" >Check</label>
+
+                    <div class="form-group">
+                        <label for="image">Image</label>
+                        <input type="file" name="image" class="form-control">
                     </div>
+
 
                     <button type="submit" class="btn btn-primary">Bekijk</button>
 

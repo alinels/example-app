@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProducts extends Migration
+class AddImageFieldProducts extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateProducts extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string("name", 128)->nullable();
-            $table->timestamps();
+        Schema::table('products', function (Blueprint $table) {
+            $table->string('image') // Nome da coluna
+            ->nullable();
+
         });
     }
 
@@ -27,6 +27,8 @@ class CreateProducts extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::table('products', function (Blueprint $table) {
+            $table->dropColumn('image');
+        });
     }
 }

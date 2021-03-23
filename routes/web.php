@@ -34,7 +34,3 @@ Route::delete('/products/delete/{id}', [App\Http\Controllers\ProductsController:
 Route::post('/products/enableText/{id}', [App\Http\Controllers\ProductsController::class, 'enableText'])->name('home');
 
 
-
-
-
-
