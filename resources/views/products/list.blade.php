@@ -32,9 +32,6 @@
             
                     
                     <tr>
-                    <td>
-                        <input type="checkbox" name="emp_liq" id="emp_liq" onclick="habilitar()" />
-                            
                         
                         </td>
                         
